@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            _firstName : "Lokesh",
+            secondName : "Kagitha"
+        };
+        Object.defineProperty(person, "firstName", {
+            get: function(){
+                return this._firstName;
+            },
+            set: function(value){
+                this._firstName = value;
+            }
+        });
+        console.log(person._firstName);
+    </script>
+</body>
+</html>
