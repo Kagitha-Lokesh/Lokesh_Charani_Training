@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <!-- Perfect 👍 I’ll give you real-world examples specifically using arrays, but still without code — so you can write it yourself.
+
+        🔎 1. find() on Arrays
+
+        👉 Used when you want one single element from an array.
+
+        🧑‍🎓 Example: Students Array
+
+        Imagine you have an array of student objects:
+
+        Lokesh – Roll No: 1
+
+        Ravi – Roll No: 2
+
+        Sneha – Roll No: 3
+
+        You need to get the student whose roll number is 2.
+
+        You expect only one student as result → This is find().
+
+        🛒 Example: Products Array
+
+        Array of products:
+
+        id: 101 – Shirt
+
+        id: 102 – Shoes
+
+        id: 103 – Watch
+
+        Find the product with id 103.
+        You only want that one product.
+
+        🔍 2. filter() on Arrays
+
+        👉 Used when you want multiple matching elements.
+
+        💰 Example: Prices Array
+
+        Array of prices:
+        [500, 1500, 800, 2000, 300]
+
+        You want all prices below 1000.
+
+        You’ll get:
+        [500, 800, 300]
+
+        Multiple values → filter().
+
+        🧑‍💼 Example: Employees Array
+
+        Employees:
+
+        IT
+
+        HR
+
+        IT
+
+        Sales
+
+        Filter employees who are in IT department.
+
+        You’ll get all IT employees (more than one possible).
+
+        📊 3. sort() on Arrays
+
+        👉 Used to arrange array elements in order.
+
+        🔢 Example: Numbers Array
+
+        [45, 12, 89, 5, 23]
+
+        Sort them:
+
+        Smallest to largest
+
+        Largest to smallest
+
+        📝 Example: Names Array
+
+        ["Lokesh", "Anil", "Ravi", "Sneha"]
+
+        Sort alphabetically:
+
+        A → Z
+        or
+
+        Z → A
+
+        🔄 4. reverse() on Arrays
+
+        👉 Used to flip the order of elements.
+
+        🔢 Example: Numbers
+
+        [1, 2, 3, 4, 5]
+
+        Reverse it →
+        [5, 4, 3, 2, 1] -->
+
+
+
+        <script>
+            const students = [
+            {
+                name : 'Lokesn',
+                rollNo : 1
+            },
+            {
+                name : 'Sai',
+                rollNo : 2
+            },
+            {
+                name : 'Asfin',
+                rollNo : 3
+            }
+        ]
+
+        student = students.find(student => student.rollNo === 2)
+        if(student){
+            console.log(student.name)
+        }
+        else{
+            console.log("Not found")
+        }
+
+
+        const products = [
+            {
+                id : 101,
+                prodName : 'shirt shoe watch'
+            },
+            {
+                id : 102,
+                prodName : 'shoe'
+            },
+            {
+                id : 103,
+                prodName : 'watch'
+            }
+        ];
+        const product = products.find(p => (p.id===103))
+        if(product){
+            console.log(product.prodName)
+        }
+        else{
+            console.log("Not found")
+        }
+
+
+        // prices under 1000
+
+        const prices = [500, 1500, 800, 2000, 300];
+
+        const under1000 = prices.filter(x => x<1000);
+        if(under1000.length > 0){
+            console.log(under1000)
+        }
+        else{
+            console.log("NO price under 1000")
+        }
+
+        //Filter employees who are in IT department.
+
+        const employees = ['IT','HR','IT','Sales'];
+
+        const itEmployees = employees.filter(emp => emp ==='IT');
+        if(itEmployees.length>0){
+            console.log(itEmployees);
+        }
+        else{
+            console.log('No IT employees')
+        }
+
+        // Sort & Reverse
+
+        const nums = [45, 12, 89, 5, 23];
+
+        const names = ["Lokesh", "Anil", "Ravi", "Sneha"];
+
+
+        console.log(nums.sort((a, b) => a - b));
+
+        console.log(nums.sort((a, b) => b - a));
+
+        console.log(names.sort());
+
+        console.log(names.sort().reverse());
+
+        </script>
+</body>
+</html>
