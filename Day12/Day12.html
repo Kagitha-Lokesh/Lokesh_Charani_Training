@@ -1,0 +1,192 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* 
+                | Method                   | Purpose                    |
+        | ------------------------ | -------------------------- |
+        | `createElement()`        | Create new element         |
+        | `appendChild()`          | Add element at end         |
+        | `before()`               | Insert before element      |
+        | `after()`                | Insert after element       |
+        | `replaceChild()`         | Replace existing element   |
+        | `removeChild()`          | Remove child element       |
+        | `cloneNode()`            | Copy an element            |
+        | `append()`               | Add element or text at end |
+        | `prepend()`              | Add element at beginning   |
+        | `parentNode`             | Get parent element         |
+        | `children`               | Get child elements         |
+        | `nextElementSibling`     | Next sibling               |
+        | `previousElementSibling` | Previous sibling           |
+
+        */
+
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>DOM Table Example</title>
+</head>
+<body>
+
+<h2>Student Table</h2>
+
+<table border="1" id="studentTable" style="border-collapse: collapse;">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Course</th>
+</tr>
+</thead>
+
+<tbody id="tableBody">
+
+<tr id="row1">
+<td>1</td>
+<td>Lokesh</td>
+<td>B.Tech</td>
+</tr>
+
+<tr id="row2">
+<td>2</td>
+<td>Sai</td>
+<td>B.Tech</td>
+</tr>
+
+</tbody>
+</table>
+
+<button onclick="runDemo()">Run DOM Demo</button>
+
+<script>
+
+    function runDemo(){
+
+    // createElement()
+    /* const newRow = document.createElement("tr")
+
+    const c1 = document.createElement("td")
+    const c2 = document.createElement("td")
+    const c3 = document.createElement("td")
+
+    c1.innerText = "3"
+    c2.innerText = "venu"
+    c3.innerText = "B.Tech"
+
+    // appendChild()
+    newRow.appendChild(c1)
+    newRow.appendChild(c2)
+    newRow.appendChild(c3)
+
+    const tableBody = document.getElementById("tableBody")
+
+    tableBody.appendChild(newRow) */
+
+
+    // prepend()
+    /* const firstRow = document.createElement("tr")
+    firstRow.innerHTML = "<td>0</td><td>Admin</td><td>MCA</td>"
+
+    tableBody.prepend(firstRow) */
+
+
+    /* 
+
+    ID	Name	Course
+    0	Admin	MCA
+    1	Lokesh	B.Tech
+    2	Sai	B.Tech
+    Run DOM Demo 
+
+    */
+
+
+    // before()
+    /* const beforeRow = document.createElement("tr")
+    beforeRow.innerHTML = "<td>4</td><td>Suresh</td><td>MBA</td>"
+
+    document.getElementById("row1").before(beforeRow) */
+
+    /* 
+    ID	Name	Course
+    4	Suresh	MBA
+    1	Lokesh	B.Tech
+    2	Sai	B.Tech
+    */
+
+
+    // after()
+    /* const afterRow = document.createElement("tr")
+    afterRow.innerHTML = "<td>5</td><td>Vijay</td><td>BSc</td>"
+
+    document.getElementById("row1").after(afterRow) */
+
+    /* 
+    ID	Name	Course
+    1	Lokesh	B.Tech
+    5	Vijay	BSc
+    2	Sai	B.Tech
+    */
+
+
+    // replaceChild()
+    /* 
+    const replaceRow = document.createElement("tr")
+    replaceRow.innerHTML = "<td>6</td><td>Kiran</td><td>BCom</td>"
+
+    tableBody.replaceChild(replaceRow, document.getElementById("row2"))*/
+
+
+    /* 
+    ID	Name	Course
+    1	Lokesh	B.Tech
+    6	Kiran	BCom
+    */
+
+
+    // cloneNode()
+    /* const clone = document.getElementById("row1").cloneNode(true)
+    tableBody.appendChild(clone) */
+
+    
+    /* ID	Name	Course
+    1	Lokesh	B.Tech
+    2	Sai	B.Tech
+    1	Lokesh	B.Tech */
+
+
+
+    // parentNode
+    console.log(document.getElementById("row1").parentNode)
+   
+
+    // children
+    const tableBody = document.getElementById("tableBody")
+    console.log(tableBody.children)
+    
+
+    // siblings
+    console.log(document.getElementById("row1").nextElementSibling)
+    console.log(document.getElementById("row2").previousElementSibling)
+
+
+    // removeChild()
+     const removeRow = tableBody.children[0]
+    tableBody.removeChild(removeRow) 
+
+}
+
+</script>
+
+</body>
+</html>

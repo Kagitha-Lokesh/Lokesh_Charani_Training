@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function captalize(str){
+            let capStr = "";
+            let isFirstChar = true;
+            for(let i=0; i<str.length;i++){
+
+                let ch = str.charAt(i);
+
+                if(ch>="A" && ch <="Z"){
+                    ch = ch.toLowerCase();
+                } 
+                if(isFirstChar && ch>='a' && ch <= 'z'){
+                    capStr += ch.toUpperCase();
+                    isFirstChar = false;
+                }else{
+                    capStr += ch;
+                }
+                
+                if(ch===" "||ch===","||ch==="["||ch==="]"||ch==="/"||ch==="("||ch===")"){
+                    isFirstChar=true;
+                }
+                
+            }
+            return capStr;
+        }
+
+        function captalizeByReplace(str){
+            str = str.toLowerCase();
+
+            return str.replace(/(^|[ ,.\[\]\/()])([a-z])/g,function (match, p1, p2){
+                return p1+p2.toUpperCase();
+            });
+        }
+
+        
+        let str = "hi, i am a Full Stack developer (java)";
+        console.log(captalize(str));
+
+        console.log(captalizeByReplace(str));
+        
+    </script>
+</body>
+</html>

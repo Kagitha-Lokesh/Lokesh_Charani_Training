@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+#userForm{
+
+    width: 300px;
+    height: 200px;
+}
+#userForm input,label{
+    margin: 10px;
+}
+</style>
+</head>
+
+<body>
+<h3>Enter Details</h3>
+<form id="userForm">
+    <label for="name">Name :</label>
+    <input type="text" id="name" name="name" placeholder="Enter Name">
+    <br>
+    <label for="age">Age :</label>
+    <input type="number" id="age" name="age" placeholder="Enter Age">
+    <br>
+    <label for="course">Course :</label>
+    <input type="text" id="course" name="course" placeholder="Enter Course">
+    <br>
+    <label for="city">City :</label>
+    <input type="text" id="city" name="city" placeholder="Enter City">
+    <br>
+    <button onclick="eventHandelerAttributes(e)">Event Handeler attributes</button>
+    <button id="levelZero-btn">Level Zero</button>
+    <button id="levelTwo-btn" type="submit">Level Two</button>
+</form>
+
+<div>
+    <table id="userTable" border="1" style="border-collapse:collapse; margin-top:30px;">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+            <th>City</th>
+        </tr>
+    </table>
+</div>
+
+<script>
+
+
+function eventHandelerAttributes(e){
+    e.preventDefault();
+    addRow();
+}
+
+
+const leveZeroBtn = document.getElementById("levelZero-btn")
+leveZeroBtn.onclick = function(e){
+    e.preventDefault();
+    addRow();
+}
+
+
+const levelTwoBtn = document.getElementById("levelTwo-btn");
+levelTwoBtn.addEventListener('click',levelTwo);
+
+function levelTwo(e){
+    e.preventDefault();
+    addRow();
+}
+
+
+function addRow(){
+    let userForm = document.getElementById('userForm');
+    let name = document.getElementById("name").value;
+    let age = document.getElementById("age").value;
+    let course = document.getElementById("course").value;
+    let city = document.getElementById("city").value;
+
+    const table = document.getElementById("userTable");
+
+    console.log(name,age,course,city);
+    const newRow = document.createElement('tr');
+
+    const nameCell = document.createElement('td');
+    const ageCell = document.createElement('td');
+    const courseCell = document.createElement('td');
+    const cityCell = document.createElement('td');
+
+    nameCell.textContent = name;
+    ageCell.textContent = age;
+    courseCell.textContent = course;
+    cityCell.textContent = city;
+
+    newRow.appendChild(nameCell);
+    newRow.appendChild(ageCell);
+    newRow.append(courseCell);
+    newRow.appendChild(cityCell);
+
+    table.appendChild(newRow);
+
+    userForm.reset();
+}
+</script>
+
+</body>
+</html>

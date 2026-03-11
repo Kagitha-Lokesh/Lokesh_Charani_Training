@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6</title>
+</head>
+<body>
+    <script>
+        /* var person = {
+            firstName : 'Lokesh',
+            lastName : 'kagitha',
+            greet(){
+                console.log("Hello ")
+            },
+            age:22
+        }
+        //console.log(person);
+        //document.write(person);
+        person.greet(); */
+
+        // this - inside a method , the 'This' value references the object that invokes the method.
+
+        /* var person = {
+            firstName : 'Lokesh',
+            lastName : 'kagitha',
+            greet(){
+                return this.firstName+" "+this.lastName;
+            },
+            age:22
+        }
+        console.log(person.greet()) */
+
+
+        // Assignmetn : get student Total marks, Results, Average
+
+       /*  var student = {
+            firstName : 'Lokesh',
+            lastName : 'kagitha',
+            age:22,
+            marks : [50,60,70,60,50],
+            getTotalMarks(){
+                var sum = 0;
+                 for(var i = 0; i < this.marks.length; i++){
+                    sum += this.marks[i];
+                 }
+                 
+                 return sum;
+            },
+            
+            getAvg(){
+                
+                return (this.marks.reduce((total, num) => total+num,0)/this.marks.length);
+            },
+            getResults(){
+                return this.marks.map((mark,index)=>{
+                    return `Subject ${index+1} : ${mark >= 40 ? "pass" : "fail"}`;
+                });
+            }
+        }
+        console.log("Total marks :",student.getTotalMarks());
+        console.log("Average :",student.getAvg());
+        console.log("Result  : ",student.getResults()); */
+
+
+        // Constructor Function - we need to create similar objects, for that we use a constructor function to define a custom type
+        //                          and the 'new' operator to create multiple objects from this type.
+
+        /* function Person(firstName,lastName){
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+        var person1 = new Person('lokesh','kagitha');
+        var person2 = new Person('sai','ratnala');
+        console.log(person1);
+        console.log(person2); */
+
+
+        // Assignment : Employee monthly salary accoring to the working days.
+        // Employee : name , salary , designation , this.getMonthlySal()
+
+
+        function Employee(name,salary,designation,workingDays){
+            this.name = name;
+            this.salary = salary;
+            this.designation = designation;
+            this.workingDays = workingDays;
+
+            this.getMontlysal = function(){
+                return (this.salary/30)*this.workingDays;
+
+            }
+        }
+
+        const emp1 = new Employee('Lokesh',3000,'Developer',26);
+        console.log("Employee name :",emp1.name);
+        console.log("Designation :",emp1.designation);
+        console.log("Salary :",emp1.getMontlysal())
+
+
+
+    </script>
+</body>
+</html>

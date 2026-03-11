@@ -1,0 +1,42 @@
+//DOM : Document Object Model (DOM) is an application programming interface (API) for manipulating HTML documents.
+
+        DOM represents an HTML docs as a tree of nodes.
+        The DOM provides functions that allow to add,removemmodify of the document effectively.
+
+        In the DOM  tree
+             Document ---> root tree
+                          one child node --> HTML (document element)
+
+        node has 2 properties nodeName, nodeValue
+
+
+        constant                    nValue       Description
+
+        Node.ELEMENT_NODE               1           An Element node like <p> or <div>
+        Node.TEXT_NODE                  3           The actual text inside an element or Attr
+        Node.CDATA_SECTION_NODE         4           A CDATA scetion 
+        Node.PROCESSING_INSTRUCTION_N0DE 7          A processing Instruction
+        Node.COMMENT_NODE               8           A comment Node
+        Node.DOCUMENT_NODE              9           A Document Node
+        Node.DOCUMENT_TYPE_NODE         10          DOCTYPE
+        Node.DOCUMENT_FRAGMENT_NODE     11          A Document Fragment
+
+
+Getting elemtns from DOM:
+    getting elements
+        document.gerElemetByTagName
+        methid accepts a tag name and retuns a value HTML colletion of elemtnts
+        with the matching tag name in the order which they appear in the document.
+
+
+
+        defer attribute is a boolean attribute - is used to  set the script to be
+        executed after the page finished parsing.
+        The Defer attribute is only for External scripts.
+
+
+CLASSNAME : document.gerElemetByClassName("text");
+
+getting the element 
+    document.gerElemetById
+    method returns an element object that represents an object that represents an HTML element with an id.

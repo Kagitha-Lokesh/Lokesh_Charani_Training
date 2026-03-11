@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p>Text</p>
+    <p>Hello</p>
+    <p>Sample</p>
+    <ul>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+
+
+-->
+    
+
+    <h1 id="title">Welcome </h1>
+
+
+    <p class="text">Paragraph 1</p>
+    <p class="text">Paragraph 2</p>
+    <p>Third paragraph</p>
+
+    <div class="container">container 1</div>
+    <div class="container">container 2</div>
+
+    <li class="item">Apple</li>
+    <li class="item">Banana</li>
+    <li class="item">Orange</li>
+    <button onclick="change()">click</button>
+    <script>
+        /* Examples */
+        /* var para = document.getElementsByTagName('p');
+        for(var i = 0;i < para.length; i++){
+            para[i].innerText +=" New Text";
+        }
+
+        var items = document.getElementsByTagName('li');
+        for(var i = 0;i< items.length;i++){
+            items[i].innerText += " "+(i+1);
+        }
+        var ullis = document.querySelectorAll('ul li');
+        console.log(ullis)  */
+
+
+        // Assignment
+
+        function change(){
+            const heading = document.getElementById("title");
+            const paragraphs = document.getElementsByClassName("text");
+            const para = document.getElementsByTagName("p");
+            const container = document.querySelector(".container");
+            const items = document.querySelectorAll(".item");
+
+            heading.style.color = "blue";
+            heading.textContent = "Hello Lokesh!";
+
+            paragraphs[0].style.color = "red";
+            para[1].style.color = "green";
+
+            container.style.backgroundColor = "yellow";
+
+
+            for(var i = 0; i<items.length;i++){
+                items[i].style.color="purple";
+            }
+             
+        }
+
+
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validaton</title>
+</head>
+
+<body>
+    <h3>Form Validaton</h3>
+    <form id="userForm">
+        <label for="name">Name : </label>
+        <input type="text" id="name" name="name">
+        <p id="nameError"></p> <br>
+        <label for="email">Email : </label>
+        <input type="text" id="email" name="email">
+        <p id="emailError"></p> <br>
+        <label for="DoB">Date of Birth : </label>
+        <input type="date" id="DoB" name="DoB">
+        <p id="DoBError"></p> <br>
+        <label for="password">Password : </label>
+        <input type="password" id="password" name="password">
+        <p id="passwordError"></p> <br>
+        <label for="confirmPassword">Confirm Password : </label>
+        <input type="password" id="confirmPassword" name="confirmPassword">
+        <p id="confirmPasswordError"></p> <br>
+        <input type="checkbox" id="terms" name="terms">
+        <label for="terms">I have Read and Accepted the Conditions</label>
+        <p id="termsError"></p> <br>
+        <button type="submit">Submit</button>
+        <p id="successMsg"></p>
+    </form>
+    <script>
+        const userForm = document.getElementById("userForm");
+        userForm.addEventListener("submit", submitForm);
+
+        function submitForm(e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const DoB = document.getElementById("DoB").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const terms = document.getElementById("terms").checked;
+            const nameError = document.getElementById("nameError");
+            const emailError = document.getElementById("emailError");
+            const DoBError = document.getElementById("DoBError");
+            const passwordError = document.getElementById("passwordError");
+            const confirmPasswordError = document.getElementById("confirmPasswordError");
+            const termsError = document.getElementById("termsError");
+            const successMsg = document.getElementById("successMsg");
+
+            let isValid = true;
+            if (name === "") {
+                nameError.style.color = "red";
+                nameError.innerText = "Name is required";
+                isValid = false;
+            } else {
+                nameError.innerText = "";
+            }
+            if (email === "") {
+                emailError.style.color = "red";
+                emailError.innerText = "Email is required";
+                isValid = false;
+            } else {
+                if (!email.includes("@")) {
+                    emailError.style.color = "red";
+                    emailError.innerText = "Email is invalid";
+                    isValid = false;
+                }
+                else {
+                    emailError.innerText = "";
+                }
+            }
+            if (DoB === "") {
+                DoBError.style.color = "red";
+                DoBError.innerText = "Date of Birth is required";
+                isValid = false;
+            } else {
+                DoBError.innerText = "";
+            }
+            if (password === "") {
+                passwordError.style.color = "red";
+                passwordError.innerText = "Password is required";
+                isValid = false;
+            } else {
+                passwordError.innerText = "";
+            }
+            if (confirmPassword === "") {
+                confirmPasswordError.style.color = "red";
+                confirmPasswordError.innerText = "Confirm Password is required";
+                isValid = false;
+            } else {
+                if (password !== confirmPassword) {
+                    confirmPasswordError.style.color = "red";
+                    confirmPasswordError.innerText = "Passwords do not match";
+                    isValid = false;
+                }
+                else {
+                    confirmPasswordError.innerText = "";
+                }
+            }
+            if (terms === false) {
+                termsError.style.color = "red";
+                termsError.innerText = "You must accept the terms and conditions";
+                isValid = false;
+            } else {
+                termsError.innerText = "";
+            }
+            if (isValid) {
+                successMsg.style.color = "green";
+                successMsg.innerText = "Form Submitted Successfully";
+            }
+        }
+    </script>
+</body>
+
+</html>

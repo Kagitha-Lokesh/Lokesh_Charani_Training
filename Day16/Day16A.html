@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Day 16</h1>
+    <form id="userForm">
+        <input type="text" name="name" placeholder="Name">
+        <input type="number" name="age" placeholder="Age">
+        <input type="text" name="course" placeholder="Cousrs">
+        <input type="text" name="city" placeholder="City">
+        <button type="submit" id="btn">Submit</button>
+    </form>
+    <script>
+        var userForm = document.forms[0];
+        var users = [];
+        var obj = {};
+
+        userForm.addEventListener('submit',addUser);
+
+        function addUser(e){
+            console.log(e);
+            e.preventDefault();
+            
+            for(var i = 0; i < userForm.length-1;i++){
+                if(userForm.children[i].value === ""){
+                    alert("Enter Valid Input");
+                    obj = {};
+                    return;
+                }
+                obj[userForm.children[i].name] = userForm.children[i].value;
+            }
+
+            console.log(obj);
+            users.push(obj);
+            obj = {};
+            userForm.reset();
+            console.log("Users : ",users);
+            createUserTable(users);
+        }
+
+        function createUserTable(users){
+
+            var oldTable = document.querySelector("table");
+            if(oldTable){
+                oldTable.remove();
+            }
+
+            var table = document.createElement('table');
+            var thead = document.createElement('thead');
+            var tbody = document.createElement('tbody');
+
+            console.log("Length : ",users.length)
+
+            thead.innerHTML = `<tr>
+            <th>S.no</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>course</th>
+            <th>City</th>
+            </tr>`;
+
+            table.appendChild(thead);
+
+            for(var i = 0; i < users.length; i++){
+                var tr = document.createElement("tr");
+
+                tr.innerHTML = `<td>${i+1}</td>
+                                <td>${users[i].name}</td>
+                                <td>${users[i].age}</td>
+                                <td>${users[i].course}</td>
+                                <td>${users[i].city}</td>`;
+
+                tbody.appendChild(tr);
+            }
+
+            table.appendChild(tbody);
+            document.body.appendChild(table);
+        }
+    </script>
+</body>
+</html>
